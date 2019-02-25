@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!-- 数据库的名称-->
+    <dbname value = "BookStore"></dbname>
+    <!-- 指定数据库版本号 -->
+    <!-- 如果使用LitePal每次更新数据库 版本号+1-->
+    <version value = "1"></version>
+    <list>
+        <!-- 用于指定所有映射模型 -->
+        <!-- 声明我们要配置的映射模型类 完整的类名，不管有多少模型类需要映射，都用同样的方式配置在这里-->
+        <mapping class="litepalpractice.sofia.com.litepalpractice.Book"></mapping>
+    </list>
+</litepal>
