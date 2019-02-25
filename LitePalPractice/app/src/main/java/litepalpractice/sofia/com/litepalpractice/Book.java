@@ -6,6 +6,17 @@ public class Book {
     private double price;
     private int pages;
     private String name;
+    //想要在Book表中添加press出版社字段,每次新增数据需要将版本号+1
+
+    private String press;
+
+    public String getPress() {
+        return press;
+    }
+
+    public void setPress(String press) {
+        this.press = press;
+    }
 
     public int getId() {
         return id;
