@@ -37,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
                 book.save();
             }
         });
+
+
+        Button updateData = (Button)findViewById(R.id.update_data);
+        updateData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Book book = new Book();
+                book.setPrice(8881);
+                book.setAuthor("这是更新的作者");
+                book.updateAll("press = ?","sofia-home");
+            }
+        });
         /**
          *
          * 查看 litepal 创建表语句
