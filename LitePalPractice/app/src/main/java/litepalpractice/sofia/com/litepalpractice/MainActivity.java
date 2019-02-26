@@ -21,6 +21,22 @@ public class MainActivity extends AppCompatActivity {
                 Connector.getDatabase();
             }
         });
+
+
+        Button addData = (Button)findViewById(R.id.add_data);
+        addData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Book book = new Book();
+                book.setName("这是我添加的数据-name");
+                book.setAuthor("这是我添加的数据-作者");
+                book.setPages(1000);
+                book.setPress("sofia-home");
+                book.setPrice(888);
+                //最后一步 save
+                book.save();
+            }
+        });
         /**
          *
          * 查看 litepal 创建表语句
