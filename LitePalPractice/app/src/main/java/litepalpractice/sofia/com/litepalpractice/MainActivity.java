@@ -2,13 +2,17 @@ package litepalpractice.sofia.com.litepalpractice;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
 
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "sofia";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,31 @@ public class MainActivity extends AppCompatActivity {
                 book.setPrice(8881);
                 book.setAuthor("这是更新的作者");
                 book.updateAll("press = ?","sofia-home");
+            }
+        });
+
+        //删除数据
+        Button deleteData = findViewById(R.id.remove_data);
+        deleteData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataSupport.deleteAll(Book.class,"price < ? ","1000");
+            }
+        });
+
+        //更新数据
+        Button findData = findViewById(R.id.find_data);
+        findData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<Book> books = DataSupport.findAll(Book.class);
+                for(Book book:books){
+                    Log.d(TAG,"book.getName = " + book.getName());
+                    Log.d(TAG,"book.getPages = " + book.getPages());
+                    Log.d(TAG,"book.getPrice = " + book.getPrice());
+                    Log.d(TAG,"book.getAuthor = " + book.getAuthor());
+                    Log.d(TAG,"book.getPress = " + book.getPress());
+                }
             }
         });
         /**
